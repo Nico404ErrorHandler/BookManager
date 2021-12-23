@@ -1,0 +1,122 @@
+﻿<Window x:Class="De.HsFlensburg.ClientApp064.Ui.Desktop.NewBookWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="NewBookWindow" Height="600" Width="500">
+    <Window.DataContext>
+        <Binding Source="{StaticResource ViewNodelLocator}"
+                 Path="TheNewBookWindowViewModel"></Binding>
+    </Window.DataContext>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <UniformGrid Columns="2">
+
+            <Label VerticalAlignment="Center" 
+                   HorizontalAlignment="Right">
+                Title
+            </Label>
+            <TextBox VerticalAlignment="Center"
+                     Text="{Binding Path=BVM.Title}">
+            </TextBox>
+
+            <Label VerticalAlignment="Center" 
+                   HorizontalAlignment="Right">
+                Author
+            </Label>
+            <TextBox VerticalAlignment="Center"
+                     Text="{Binding Path=BVM.Author}">
+            </TextBox>
+
+            <Label VerticalAlignment="Center" 
+                   HorizontalAlignment="Right">
+                Style
+            </Label>
+            <TextBox VerticalAlignment="Center"
+                     Text="{Binding Path=BVM.Style}">
+            </TextBox>
+
+            <Label VerticalAlignment="Center" 
+                   HorizontalAlignment="Right">
+                ISBN
+            </Label>
+            <TextBox VerticalAlignment="Center"
+                     Text="{Binding Path=BVM.ISBN}">
+            </TextBox>
+
+            <Label VerticalAlignment="Center" 
+                   HorizontalAlignment="Right">
+                Publisher
+            </Label>
+            <TextBox VerticalAlignment="Center"
+                     Text="{Binding Path=BVM.Publisher}">
+            </TextBox>
+
+            <Label VerticalAlignment="Center" 
+                   HorizontalAlignment="Right">
+                Language
+            </Label>
+            <TextBox VerticalAlignment="Center"
+                     Text="{Binding Path=BVM.Language}">
+            </TextBox>
+
+            <Label VerticalAlignment="Center" 
+                   HorizontalAlignment="Right">
+                Price
+            </Label>
+            <TextBox VerticalAlignment="Center"
+                     Text="{Binding Path=BVM.Price}">
+            </TextBox>
+
+            <Label VerticalAlignment="Center" 
+                   HorizontalAlignment="Right">
+                Edition
+            </Label>
+            <TextBox VerticalAlignment="Center"
+                     Text="{Binding Path=BVM.Edition}">
+            </TextBox>
+
+            <Label VerticalAlignment="Center" 
+                   HorizontalAlignment="Right">
+                Year
+            </Label>
+            <TextBox VerticalAlignment="Center"
+                     Text="{Binding Path=BVM.Year}">
+            </TextBox>
+
+            <Label VerticalAlignment="Center" 
+                   HorizontalAlignment="Right">
+                Genre
+            </Label>
+            <TextBox VerticalAlignment="Center"
+                     Text="{Binding Path=BVM.Genre}">
+            </TextBox>
+            
+            <Label VerticalAlignment="Center" 
+                   HorizontalAlignment="Right">
+                Location
+            </Label>
+            <TextBox VerticalAlignment="Center"
+                    Text="{Binding Path=BVM.Location}">
+            </TextBox>
+
+            <Button Command="{Binding AddBook}">
+                Buch erstellen
+            </Button>
+        </UniformGrid>
+
+        <StackPanel Grid.Column="1">
+            <Image Source="{Binding Path=BVM.BindableCover}"></Image>
+            <Button Command="{Binding OpenFileDialog}">
+                Cover auswählen
+            </Button>
+        </StackPanel>
+       
+    </Grid>
+</Window>

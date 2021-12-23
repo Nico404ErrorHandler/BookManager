@@ -1,0 +1,49 @@
+﻿<Window x:Class="De.HsFlensburg.ClientApp064.Ui.Desktop.AddBibWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:De.HsFlensburg.ClientApp064.Ui.Desktop"
+        mc:Ignorable="d"
+              d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddBibWindow - Michael Sievers" Height="450" Width="800">
+
+    <Window.DataContext>
+        <Binding Source="{StaticResource ViewNodelLocator}"
+                 Path="TheAddBibViewModel"></Binding>
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <DataGrid 
+                  Name="AddBibDataGrid"
+                  ItemsSource="{Binding Path=MyBibList}"
+            />
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Command="{Binding SaveBibCommand}" Grid.Column="2">
+                Save
+            </Button>
+            <Button Command="{Binding OpenBibFileDialog}" Grid.Column="1">
+                .Bib File wählen
+            </Button>
+            <Button Command="{Binding LoadBibCommand}" Grid.Column="0">
+                Load
+            </Button>
+        </Grid>
+        
+
+    </Grid>
+
+
+</Window>

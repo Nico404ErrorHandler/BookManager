@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Book xmlns="XmlSchemaBook.xsd">
+	<title>Crescent City - Wenn das Dunkel erwacht</title>
+	<author>Sarah J. Maas</author>
+	<style>Hardcover</style>
+	<isbn>978-3-423-76296-0</isbn>
+	<year>2020</year>
+	<publisher>dtv</publisher>
+	<language>deutsch</language>
+	<price>22,00</price>
+	<edition>1</edition>
+	<genre>fantasy</genre>
+	<location></location>
+	<image>./images/bookCovers/Crescent_City_1.png</image>
+</Book>

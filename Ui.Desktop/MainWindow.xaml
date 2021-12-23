@@ -1,0 +1,171 @@
+﻿<Window x:Class="De.HsFlensburg.ClientApp064.Ui.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Book-Manager" Height="500" Width="1262">
+
+    <!--DataContext needed so that the xaml knows where the data comes from-->
+    <!--Source for the data is the ViewModelLocator and in it TheMainWindowViewModel is used-->
+    <Window.DataContext>
+        <Binding Source="{StaticResource ViewNodelLocator}"
+                 Path="TheMainWindowViewModel"></Binding>
+    </Window.DataContext>
+
+    <Window.IsEnabled>
+        <Binding Source="{StaticResource MessageListener}" Path="BindableProperty"></Binding>
+    </Window.IsEnabled>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="307*"></ColumnDefinition>
+            <ColumnDefinition Width="283*"></ColumnDefinition>
+            <ColumnDefinition Width="664*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <UniformGrid Grid.Column="0" Columns="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="29*"></RowDefinition>
+                    <RowDefinition Height="440*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <UniformGrid Grid.Row="0">
+                    <Label VerticalAlignment="Top" 
+                           HorizontalAlignment="Center"
+                           Content="Cover des Buches" 
+                    />
+                </UniformGrid>
+
+                <UniformGrid Grid.Row="1">
+                    <Image Source="{Binding Path=SelectedItem.BindableCover, ElementName=myDataGrid}"/>
+                </UniformGrid>
+            </Grid>
+        </UniformGrid>
+
+        <UniformGrid Grid.Column="1" Columns="2">
+
+            <Label VerticalAlignment="Center" 
+                   HorizontalAlignment="Right">
+                Title
+            </Label>
+            <TextBox VerticalAlignment="Center"
+                     Text="{Binding ElementName=myDataGrid, Path=SelectedItem.Title}">
+            </TextBox>
+
+            <Label VerticalAlignment="Center" 
+                   HorizontalAlignment="Right">
+                Author
+            </Label>
+            <TextBox VerticalAlignment="Center"
+                     Text="{Binding ElementName=myDataGrid, Path=SelectedItem.Author}">
+            </TextBox>
+
+            <Label VerticalAlignment="Center" 
+                   HorizontalAlignment="Right">
+                Style
+            </Label>
+            <TextBox VerticalAlignment="Center"
+                     Text="{Binding ElementName=myDataGrid, Path=SelectedItem.Style}">
+            </TextBox>
+
+            <Label VerticalAlignment="Center" 
+                   HorizontalAlignment="Right">
+                ISBN
+            </Label>
+            <TextBox VerticalAlignment="Center"
+                     Text="{Binding ElementName=myDataGrid, Path=SelectedItem.ISBN}">
+            </TextBox>
+
+            <Label VerticalAlignment="Center" 
+                   HorizontalAlignment="Right">
+                Publisher
+            </Label>
+            <TextBox VerticalAlignment="Center"
+                     Text="{Binding ElementName=myDataGrid, Path=SelectedItem.Publisher}">
+            </TextBox>
+
+            <Label VerticalAlignment="Center" 
+                   HorizontalAlignment="Right">
+                Language
+            </Label>
+            <TextBox VerticalAlignment="Center"
+                     Text="{Binding ElementName=myDataGrid, Path=SelectedItem.Language}">
+            </TextBox>
+
+            <Label VerticalAlignment="Center" 
+                   HorizontalAlignment="Right">
+                Price
+            </Label>
+            <TextBox VerticalAlignment="Center"
+                     Text="{Binding ElementName=myDataGrid, Path=SelectedItem.Price}">
+            </TextBox>
+
+            <Label VerticalAlignment="Center" 
+                   HorizontalAlignment="Right">
+                Edition
+            </Label>
+            <TextBox VerticalAlignment="Center"
+                     Text="{Binding ElementName=myDataGrid, Path=SelectedItem.Edition}">
+            </TextBox>
+
+            <Label VerticalAlignment="Center" 
+                   HorizontalAlignment="Right">
+                Year
+            </Label>
+            <TextBox VerticalAlignment="Center"
+                     Text="{Binding ElementName=myDataGrid, Path=SelectedItem.Year}">
+            </TextBox>
+
+            <Label VerticalAlignment="Center" 
+                   HorizontalAlignment="Right">
+                Genre
+            </Label>
+            <TextBox VerticalAlignment="Center"
+                     Text="{Binding ElementName=myDataGrid, Path=SelectedItem.Genre}">
+            </TextBox>
+
+            <Label VerticalAlignment="Center" 
+                   HorizontalAlignment="Right">
+                Location
+            </Label>
+            <TextBox VerticalAlignment="Center"
+                     Text="{Binding ElementName=myDataGrid, Path=SelectedItem.Location}">
+            </TextBox>
+
+            <Button Command="{Binding OpenNewBookWindowCommand}">
+                Add Book
+            </Button>
+
+            <Button Command="{Binding SaveCommand}">
+                Save
+            </Button>
+
+            <Button Command="{Binding LoadCommand}">
+                Load
+            </Button>
+
+            <Button Command="{Binding ExportInXmlCommand}">
+                Export XML
+            </Button>
+            <Button Command="{Binding ImportXmlCommand}">
+                Import XML
+            </Button>
+            <Button Command="{Binding ImportInTexFilesCommand}">
+                Import Bibtech
+            </Button>
+            <Button Command="{Binding OpenPrintWindowCommand}">
+                Print
+            </Button>
+            <Button Command="{Binding }">
+                Suche
+            </Button>
+        </UniformGrid>
+
+        <DataGrid Grid.Column="2"
+                  Name="myDataGrid"
+                  ItemsSource="{Binding Path=MyList}">
+        </DataGrid>
+    </Grid>
+</Window>
